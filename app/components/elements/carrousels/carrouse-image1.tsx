@@ -29,13 +29,12 @@ const STEP = CARD_WIDTH + GAP;
 export default function CarrouselImage1() {
   const [index, setIndex] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
-  const [activePhoto, setActivePhoto] = useState<string | null>(null);
+
+  // 👇 AGORA O DIALOG É CONTROLADO POR ÍNDICE
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // ─────────────────────────────────────────────
-  // Cálculo REAL baseado no container
-  // ─────────────────────────────────────────────
   useEffect(() => {
     function calcMax() {
       const containerWidth =
@@ -64,6 +63,24 @@ export default function CarrouselImage1() {
     setIndex((prev) => Math.max(prev - 1, 0));
   }
 
+  // ─────────────── NAVEGAÇÃO DO DIALOG ───────────────
+
+  function nextDialog() {
+    if (activeIndex === null) return;
+
+    setActiveIndex((prev) =>
+      prev === null ? 0 : (prev + 1) % photosUrl.length
+    );
+  }
+
+  function prevDialog() {
+    if (activeIndex === null) return;
+
+    setActiveIndex((prev) =>
+      prev === null ? 0 : (prev - 1 + photosUrl.length) % photosUrl.length
+    );
+  }
+
   return (
     <>
       <section className="w-full py-16 overflow-hidden">
@@ -75,8 +92,7 @@ export default function CarrouselImage1() {
                 Nosso consultório
               </span>
               <h3 className="text-2xl lg:text-3xl font-bold text-zinc-700">
-                Ambiente
-                <br />
+                Ambiente <br className="hidden lg:block" />
                 saudável
               </h3>
             </div>
@@ -94,8 +110,7 @@ export default function CarrouselImage1() {
                 {photosUrl.map((photo, i) => (
                   <button
                     key={i}
-                    onClick={() => setActivePhoto(photo)}
-                    // className="relative group w-[240px] aspect-video rounded-2xl overflow-hidden shrink-0 snap-start cursor-zoom-in"
+                    onClick={() => setActiveIndex(i)}
                     className={`relative group w-[240px] aspect-video rounded-2xl overflow-hidden shrink-0 cursor-zoom-in ${
                       i === 0 ? "snap-start" : "snap-center"
                     }`}
@@ -141,8 +156,11 @@ export default function CarrouselImage1() {
         </div>
       </section>
 
-      {/* DIALOG */}
-      <Dialog open={!!activePhoto} onOpenChange={() => setActivePhoto(null)}>
+      {/* ─────────────── DIALOG ─────────────── */}
+      <Dialog
+        open={activeIndex !== null}
+        onOpenChange={() => setActiveIndex(null)}
+      >
         <DialogOverlay className="bg-black/30 backdrop-blur-md" />
 
         <DialogContent className="max-w-6xl w-full border-none bg-transparent p-4 lg:p-0 overflow-hidden shadow-none">
@@ -150,15 +168,37 @@ export default function CarrouselImage1() {
             <DialogTitle>Visualização da imagem</DialogTitle>
           </VisuallyHidden>
 
-          {activePhoto && (
+          {activeIndex !== null && (
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
               <Image
-                src={activePhoto}
+                src={photosUrl[activeIndex]}
                 alt=""
                 fill
                 priority
                 className="object-cover"
               />
+
+              {/* CONTROLES DENTRO DO DIALOG */}
+              <div className="absolute inset-0 flex items-center justify-between px-4">
+                <button
+                  onClick={prevDialog}
+                  className="p-2 rounded-full bg-black/40 text-white hover:bg-black/60"
+                >
+                  <ChevronLeft size={28} strokeWidth={1} />
+                </button>
+
+                <button
+                  onClick={nextDialog}
+                  className="p-2 rounded-full bg-black/40 text-white hover:bg-black/60"
+                >
+                  <ChevronRight size={28} strokeWidth={1} />
+                </button>
+              </div>
+
+              {/* INDICADOR */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                {activeIndex + 1} / {photosUrl.length}
+              </div>
             </div>
           )}
         </DialogContent>
