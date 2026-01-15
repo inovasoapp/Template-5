@@ -22,7 +22,7 @@ export default function NotFound() {
       >
         <div className="space-y-4">
           <motion.h1
-            className="text-[12rem] leading-none font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/20 select-none"
+            className="text-[12rem] leading-none font-bold tracking-tighter text-transparent bg-clip-text bg-linear-to-br from-foreground to-foreground/20 select-none"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{
