@@ -145,10 +145,10 @@ export default function Hero1() {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-zinc-300  lg:text-zinc-800 font-bold text-base">
+              <span className="text-zinc-300  lg:text-zinc-800 font-bold text-xl">
                 120+
               </span>
-              <span className="text-zinc-400 lg:text-zinc-600 font-light text-xs">
+              <span className="text-zinc-400 lg:text-zinc-600 font-base text-xs">
                 Vidas Transformadas
               </span>
             </div>
