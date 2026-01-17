@@ -81,8 +81,8 @@ export default function Hero1() {
           </p>
 
           <div className="flex flex-col lg:flex-row gap-4 mt-8">
-            <MorphinButtonScreen title="Agente uma consultoria">
-              <FormCarrousel title="Agente uma consultoria" />
+            <MorphinButtonScreen title="Agende uma consulta">
+              <FormCarrousel title="Agende uma consulta" />
             </MorphinButtonScreen>
 
             <VideoPlayerDialog

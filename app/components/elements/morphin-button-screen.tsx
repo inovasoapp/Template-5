@@ -37,7 +37,7 @@ export default function MorphinButtonScreen({
           <motion.button
             layoutId={`morph-bg-${title}`}
             onClick={handleOpen}
-            className="absolute inset-0 w-full h-full bg-green-800 hover:bg-green-700 transition-colors duration-300 text-base font-light cursor-pointer rounded-md text-primary-foreground flex items-center justify-center"
+            className="absolute inset-0 w-full h-full bg-linear-to-br from-green-600 to-green-800 hover:brightness-105 transition-colors duration-300 text-base font-light cursor-pointer rounded-md text-primary-foreground flex items-center justify-center"
             style={{ borderRadius: "0.5rem" }} // match shadcn radius-md
           >
             <motion.span
