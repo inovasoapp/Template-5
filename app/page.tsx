@@ -6,6 +6,7 @@ import TimeLine1 from "./components/elements/time-lines/time-line-1";
 import { About1 } from "./components/sections/abouts/about1";
 import { Solution1 } from "./components/sections/solutions/solution1";
 import CarrouselImage1 from "./components/elements/carrousels/carrouse-image1";
+import Testimonials1 from "./components/sections/testimonials/testimonials1";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <TimeLine1 />
         <About1 />
         <CarrouselImage1 />
+        <Testimonials1 />
         <Footer3 />
       </main>
     </div>
