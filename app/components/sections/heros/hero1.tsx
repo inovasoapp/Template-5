@@ -8,7 +8,7 @@ import FormCarrousel from "../../elements/forms/form-carrousel";
 
 export default function Hero1() {
   return (
-    <section className="relative w-full min-h-[calc(100vh-6rem)] h-full lg:h-[900px] overflow-hidden">
+    <section className="relative w-full min-h-[calc(100vh-6rem)] lg:min-h-[900px] h-full lg:h-[900px] overflow-hidden">
       <div className="absolute inset-0 w-full h-full bg-linear-to-br from-amber-400 to-amber-600 z-10" />
 
       {/* Dashed Top Fade Grid */}
