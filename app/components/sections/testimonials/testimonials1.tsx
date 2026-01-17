@@ -247,7 +247,7 @@ export default function Testimonials1() {
         <div className="flex gap-4 mt-16">
           <button
             onClick={handlePrev}
-            className="p-3 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:scale-105 active:scale-95 transition-all outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="p-3 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:scale-105 active:scale-95 transition-all outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
             aria-label="Previous testimonial"
           >
             <ArrowLeft className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />
@@ -271,7 +271,7 @@ export default function Testimonials1() {
 
           <button
             onClick={handleNext}
-            className="p-3 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:scale-105 active:scale-95 transition-all outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="p-3 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:scale-105 active:scale-95 transition-all outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
             aria-label="Next testimonial"
           >
             <ArrowRight className="w-5 h-5 text-zinc-600 dark:text-zinc-400" />

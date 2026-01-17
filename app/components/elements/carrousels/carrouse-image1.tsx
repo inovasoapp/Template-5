@@ -69,7 +69,7 @@ export default function CarrouselImage1() {
     if (activeIndex === null) return;
 
     setActiveIndex((prev) =>
-      prev === null ? 0 : (prev + 1) % photosUrl.length
+      prev === null ? 0 : (prev + 1) % photosUrl.length,
     );
   }
 
@@ -77,7 +77,7 @@ export default function CarrouselImage1() {
     if (activeIndex === null) return;
 
     setActiveIndex((prev) =>
-      prev === null ? 0 : (prev - 1 + photosUrl.length) % photosUrl.length
+      prev === null ? 0 : (prev - 1 + photosUrl.length) % photosUrl.length,
     );
   }
 
@@ -138,7 +138,7 @@ export default function CarrouselImage1() {
                 <button
                   onClick={prev}
                   disabled={index === 0}
-                  className="p-2 rounded-full bg-zinc-500/10 hover:bg-zinc-200 disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="p-2 rounded-full bg-zinc-500/10 hover:bg-zinc-200 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
                 >
                   <ChevronLeft size={24} strokeWidth={1} />
                 </button>
@@ -146,7 +146,7 @@ export default function CarrouselImage1() {
                 <button
                   onClick={next}
                   disabled={index >= maxIndex}
-                  className="p-2 rounded-full bg-zinc-500/10 hover:bg-zinc-200 disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="p-2 rounded-full bg-zinc-500/10 hover:bg-zinc-200 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
                 >
                   <ChevronRight size={24} strokeWidth={1} />
                 </button>
@@ -182,14 +182,14 @@ export default function CarrouselImage1() {
               <div className="absolute inset-0 flex items-center justify-between px-4">
                 <button
                   onClick={prevDialog}
-                  className="p-2 rounded-full bg-black/40 text-white hover:bg-black/60"
+                  className="p-2 rounded-full bg-black/40 text-white hover:bg-black/60 cursor-pointer"
                 >
                   <ChevronLeft size={28} strokeWidth={1} />
                 </button>
 
                 <button
                   onClick={nextDialog}
-                  className="p-2 rounded-full bg-black/40 text-white hover:bg-black/60"
+                  className="p-2 rounded-full bg-black/40 text-white hover:bg-black/60 cursor-pointer"
                 >
                   <ChevronRight size={28} strokeWidth={1} />
                 </button>
