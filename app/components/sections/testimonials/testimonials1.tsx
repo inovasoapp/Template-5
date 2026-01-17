@@ -192,7 +192,23 @@ export default function Testimonials1() {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative w-full h-[400px] flex items-center justify-center max-w-7xl mx-auto">
+        <motion.div
+          className="relative w-full h-[400px] flex items-center justify-center max-w-7xl mx-auto touch-pan-y"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.2}
+          onDragEnd={(e, { offset, velocity }) => {
+            const swipe = Math.abs(offset.x) * velocity.x;
+
+            if (swipe < -10000) {
+              // Swipe left - next
+              handleNext();
+            } else if (swipe > 10000) {
+              // Swipe right - previous
+              handlePrev();
+            }
+          }}
+        >
           {TESTIMONIALS.map((testimonial, index) => {
             // We can check responsive "center" logic, but framer motion 'animate' works best with explicit values.
             // We'll rely on the getCardStyle returning percentages.
@@ -200,13 +216,13 @@ export default function Testimonials1() {
             return (
               <motion.div
                 key={testimonial.id}
-                className="absolute w-[240px] origin-center"
+                className="absolute w-[240px] origin-center pointer-events-none"
                 initial={false}
                 animate={getCardStyle(index)}
               >
                 <Card
                   className={cn(
-                    "items-center justify-center h-full backdrop-blur-sm border-zinc-200/50 dark:border-zinc-800/50 shadow-xl rounded-2xl overflow-hidden transition-colors",
+                    "items-center justify-center h-full backdrop-blur-sm border-zinc-200/50 dark:border-zinc-800/50 shadow-xl rounded-2xl overflow-hidden transition-colors pointer-events-auto",
                     isCenter
                       ? "bg-white dark:bg-zinc-900"
                       : "bg-white dark:bg-zinc-900/80 hover:bg-white dark:hover:bg-zinc-900 backdrop-blur-2xl",
@@ -241,10 +257,10 @@ export default function Testimonials1() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Controls */}
-        <div className="flex gap-4 mt-16">
+        <div className="flex gap-4 mt-8 lg:mt-16">
           <button
             onClick={handlePrev}
             className="p-3 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:scale-105 active:scale-95 transition-all outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
