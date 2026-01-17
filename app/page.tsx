@@ -7,6 +7,7 @@ import { About1 } from "./components/sections/abouts/about1";
 import { Solution1 } from "./components/sections/solutions/solution1";
 import CarrouselImage1 from "./components/elements/carrousels/carrouse-image1";
 import Testimonials1 from "./components/sections/testimonials/testimonials1";
+import Faq1 from "./components/sections/faqs/faq1";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <About1 />
         <CarrouselImage1 />
         <Testimonials1 />
+        <Faq1 />
         <Footer3 />
       </main>
     </div>
