@@ -1,7 +1,7 @@
 import Image from "next/image";
 import mulherInvertida from "@/public/images/mulher.webp";
 
-import { Calendar, Home, Monitor } from "lucide-react";
+import { Home, Monitor } from "lucide-react";
 import VideoPlayerDialog from "../../elements/video-player-dialog";
 import MorphinButtonScreen from "../../elements/morphin-button-screen";
 import FormCarrousel from "../../elements/forms/form-carrousel";
@@ -114,11 +114,44 @@ export default function Hero1() {
             className="object-cover object-top lg:object-center"
           />
 
-          <div className="absolute top-2/3 lg:top-1/2 right-4 w-3xs px-6 py-3 flex items-center gap-2 bg-white/10 rounded-xl z-30 backdrop-blur-sm">
-            <div className="p-3 rounded-xl bg-amber-500/60">
-              <Calendar size={20} strokeWidth={2} className="text-white/60" />
+          <div className="absolute -bottom-4 lg:bottom-auto lg:top-1/2 left-1/2 lg:left-auto -translate-x-1/2 lg:translate-x-0 lg:right-4 w-3xs px-6 py-3 flex items-center gap-2 bg-white/10 rounded-xl z-30 backdrop-blur-sm shadow-xl border border-white/20">
+            <div className="flex -space-x-2">
+              <div className="w-8 h-8 rounded-full bg-linear-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white text-xs font-bold border-2 border-amber-500">
+                <Image
+                  src="https://i.pravatar.cc/150?u=1"
+                  alt=""
+                  width={30}
+                  height={30}
+                  className="w-8 h-8 rounded-full object-cover border-2 border-primary/10 bg-amber-500"
+                />
+              </div>
+              <div className="w-8 h-8 rounded-full bg-linear-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white text-xs font-bold border-2 border-amber-500">
+                <Image
+                  src="https://i.pravatar.cc/150?u=2"
+                  alt=""
+                  width={30}
+                  height={30}
+                  className="w-8 h-8 rounded-full object-cover border-2 border-primary/10 bg-amber-500"
+                />
+              </div>
+              <div className="w-8 h-8 rounded-full bg-linear-to-br from-amber-600 to-amber-800 flex items-center justify-center text-white text-xs font-bold border-2 border-amber-500">
+                <Image
+                  src="https://i.pravatar.cc/150?u=3"
+                  alt=""
+                  width={30}
+                  height={30}
+                  className="w-8 h-8 rounded-full object-cover border-2 border-primary/10 bg-amber-500"
+                />
+              </div>
             </div>
-            <span className="text-zinc-900 font-light">Agenda</span>
+            <div className="flex flex-col">
+              <span className="text-zinc-300  lg:text-zinc-800 font-bold text-base">
+                120+
+              </span>
+              <span className="text-zinc-400 lg:text-zinc-600 font-light text-xs">
+                Vidas Transformadas
+              </span>
+            </div>
           </div>
         </div>
       </div>
